@@ -3,7 +3,7 @@ This is a work in progress recurrent on-center off-surround neural network modul
 
 Serial recall paradigm has been used from very early on to investigate short term memory (Waugh and Norman, 1965). The major characteristics that emerge from these experiments regarding recall of a series of items are primacy and recency effect – that it is much easier to recall earlier and later items in the sequence as opposed to those in the middle. In the current work we have described a single layer of fully connected recurrent neural network with properties of self-excitation and mutual inhibition, in line with Usher and Cohen, 1999; Sengupta et. al., 2014. Transient input to the network gave rise to dynamic steady state output. The steady state output pattern was used to probe which of the inputs were ultimately ‘remembered’ at the end of simulation.  We show that such a network can account for serial recall curve shown in empirical studies at higher inhibition values. Moreover, it can also account for capacity limitation commonly observed in serial recall tasks. Varying the presentation duration in the model allowed us to account for both primacy and recency effect within the same network. Furthermore, when we modeled the effect of cues on a single item in the sequence (as elevated input onto one item and calculating the recall probability of all the items in the sequence), we found that such cues will decrease the recall probability of neighboring items in the sequence. Overall, the findings indicate the possibility of understanding primacy, recency, and cued recall effects from the dynamics of a single layer recurrent on-center off-surround neural network.
 
-#setParams.m
+# setParams.m
 
 The Matlab function setparams initializes a structure params with default parameter values for a simulation of a working memory task.
 
@@ -26,7 +26,7 @@ beta: 0.15
 alphabeta: a connectivity matrix with diagonal values of 2.0 and off-diagonal values of 0.15.
 noise: 0.05.
 
-#serialWM.m
+# serialWM.m
 
 This function serialWM appears to simulate a simple working memory model in which a network of N neurons receives a sequence of input stimuli, represented by impulses of a fixed duration nstim. The stimuli are represented by setting the values of the corresponding neuron(s) to a constant value 0.33.
 
@@ -38,7 +38,7 @@ Next, the function initializes the x matrix to zero, and generates Gaussian nois
 
 Finally, the function returns the x matrix and the indices of the input neurons in the results structure.
 
-#serial_memory_test.m
+# serial_memory_test.m
 
 This code runs a simulation of a serial working memory task and calculates the recall probability of each item position.
 
@@ -48,7 +48,7 @@ The simulation is run for different values of nstim, which represents the number
 
 The results are plotted as a bar graph with error bars indicating the standard error of the mean over the different values of nstim. The x-axis represents the item order (from earliest to latest), and the y-axis represents the recall probability. The title of the plot is "Serial recall".
 
-#serial_memory_spatialCue.m
+# serial_memory_spatialCue.m
 
 This code runs a serial recall task with varying numbers of stimuli and inputs, and records the recall probabilities for each item order. The recall probabilities are calculated as the proportion of trials in which each item was correctly recalled.
 
