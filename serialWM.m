@@ -15,7 +15,25 @@
 
 % -*- texinfo -*-
 % @deftypefn {} {@var{retval} =} serialWM (@var{input1}, @var{input2})
+% This function serialWM appears to simulate a simple working memory model in which a network of N neurons receives a sequence of input stimuli, r
+% epresented by impulses of a fixed duration nstim. The stimuli are represented by setting the values of t
+% he corresponding neuron(s) to a constant value 0.33.
 %
+% The function takes a params structure as input, containing parameters such as the number of neurons 
+% (N), the time steps (nt), the number of stimuli (nstim), the number of inputs (ninputs), 
+% and the strength of noise (noise).
+% 
+% The function first initializes the input (I) and network (x) matrices to zero. 
+% It then randomly selects ninputs neurons to receive the stimuli, and sets the corresponding 
+% elements of the I matrix to 0.33. If the function is called with an additional input argument, 
+% it sets the value of the kth neuron in the I matrix to a higher value of 0.43.
+%
+% Next, the function initializes the x matrix to zero, and generates Gaussian noise 
+% to be added to the network activity. The main loop then runs for nt-1 iterations, updating the 
+% x matrix at each time step by computing the current value of each neuron as a function of its previous value, 
+% the external input, and the noise. If a neuron's value drops below zero, it is reset to zero.
+%
+% Finally, the function returns the x matrix and the indices of the input neurons in the results structure.
 % @seealso{}
 % @end deftypefn
 
